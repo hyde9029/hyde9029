@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <link type="text/css" rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link href="https://code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
+  <title>ログイン</title>
+</head>
+
+<body>
+  <!-- メインコンテント -->
+  <div class="signin cf">
+    <div class="avatar"></div>
+    <form action="" method="POST">
+      {{ form.non_field_errors }}
+      <div class="inputrow">
+        {{ form.username }}
+        <label class="ion-person" for="id_username"></label>
+      </div>
+      <div class="inputrow">
+        {{ form.password }}
+        <label class="ion-locked" for="id_password"></label>
+      </div>
+      <input type="submit" value="Login" />
+      <input type="hidden" name="next" value="{{ next }}" />
+      {% csrf_token %}
+    </form>
+  </div>
+</body>
+
+</html>
